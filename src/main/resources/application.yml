@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: pictureframe-server
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/pictureframe}
+    username: ${DB_USERNAME:pictureframe}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+
+  flyway:
+    enabled: true
+
+server:
+  port: 8080

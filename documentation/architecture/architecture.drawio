@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Seite-1" id="5TELTmbdhjFrnx9dV_du">
+    <mxGraphModel dx="2241" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="" vertex="1">
+          <mxGeometry height="480" width="720" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="" vertex="1">
+          <mxGeometry height="180" width="660" x="70" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;fontStyle=1" value="Familienmitglieder" vertex="1">
+          <mxGeometry height="30" width="60" x="384" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-5" edge="1" parent="1" source="rXPogZgM3jCaEHm9OdKw-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.523;entryY=-0.003;entryDx=0;entryDy=0;" target="rXPogZgM3jCaEHm9OdKw-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-6" connectable="0" parent="rXPogZgM3jCaEHm9OdKw-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="HTTPS" vertex="1">
+          <mxGeometry relative="1" x="-0.0196" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Login - Bilder hochladen - Bilderrahmen auswählen - Push festlegen" vertex="1">
+          <mxGeometry height="30" width="380" x="224" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;fontStyle=1" value="STRATO VPS" vertex="1">
+          <mxGeometry height="30" width="216" x="306" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Login - REST-API - Bildverarbeitung - Verwaltung" vertex="1">
+          <mxGeometry height="30" width="380" x="224" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=1" value="Spring Boot (Java 21)" vertex="1">
+          <mxGeometry height="30" width="380" x="224" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=1" value="PostgreSQL" vertex="1">
+          <mxGeometry height="30" width="100" x="124" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=1" value="Dateisystem" vertex="1">
+          <mxGeometry height="30" width="100" x="590" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Nutzer, Bilder, Bilderrahmen, Status" vertex="1">
+          <mxGeometry height="30" width="380" x="-16" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Bilddateien, Varianten" vertex="1">
+          <mxGeometry height="30" width="380" x="450" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=1" value="Bilderrahmen 1" vertex="1">
+          <mxGeometry height="30" width="120" x="114" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=1" value="Bilderrahmen 2" vertex="1">
+          <mxGeometry height="30" width="120" x="354" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=14;fontStyle=1" value="Bilderrahmen 3" vertex="1">
+          <mxGeometry height="30" width="120" x="580" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-18" edge="1" parent="1" source="rXPogZgM3jCaEHm9OdKw-2" style="endArrow=classic;html=1;rounded=0;exitX=0.519;exitY=1.002;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="350" y="390" as="sourcePoint" />
+            <mxPoint x="412.49" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="HTTPS - Synchronisierung" vertex="1">
+          <mxGeometry height="30" width="170" x="328" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="microSD" vertex="1">
+          <mxGeometry height="30" width="66" x="141" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="microSD" vertex="1">
+          <mxGeometry height="30" width="66" x="381" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="rXPogZgM3jCaEHm9OdKw-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="microSD" vertex="1">
+          <mxGeometry height="30" width="66" x="607" y="460" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
