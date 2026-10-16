@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>PictureFrame</title>
+    </head>
+    <body>
+        <h1>PictureFrame</h1>
+
+        <p>Du bist erfolgreich angemeldet!</p>
+
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">
+                Abmelden
+            </button>
+        </form>
+    </body>
+</html>
