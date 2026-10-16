@@ -45,5 +45,6 @@ public class DeviceImage
     public Instant getDownloadedAt() { return downloadedAt; }
     public boolean isPushEnabled() { return pushEnabled; }
     public int getPushDurationSeconds() { return pushDurationSeconds; }
+    public void setDownloadedAt(Instant downloadedAt) { this.downloadedAt = downloadedAt; }
 
 }
