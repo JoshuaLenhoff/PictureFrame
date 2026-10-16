@@ -19,21 +19,12 @@ public class SecurityConfig
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         http.authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/css/**", "/js/**", "/images/**")
-                        .permitAll()
-                        .requestMatchers("/admin/**")
-                        .hasRole("ADMIN")
-                        .requestMatchers("/api/device/**")
-                        .denyAll()
-                        .anyRequest()
-                        .authenticated())
-            .formLogin(form -> form
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/", true)
-                        .permitAll())
-            .logout(logout -> logout
-                        .logoutSuccessUrl("/login?logout")
-                        .permitAll());
+                        .requestMatchers("/login", "/css/**", "/js/**", "/images/*.jpg", "/images/*.png").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/device/**").denyAll()
+                        .anyRequest().authenticated())
+            .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/", true).permitAll())
+            .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll());
 
         return http.build();
     }

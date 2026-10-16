@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PictureFrame – Bild hochladen</title>
+        <link rel="stylesheet" th:href="@{/css/upload.css}">
+    </head>
+
+    <body>
+        <main class="upload-page">
+            <header class="page-header">
+                <h1>PictureFrame</h1>
+                <p>Deine schönsten Momente teilen</p>
+            </header>
+
+            <section class="upload-card">
+                <div class="upload-content">
+                    <div class="camera-icon" aria-hidden="true">
+                        📷
+                    </div>
+
+                    <h2>Bild hochladen</h2>
+
+                    <p class="upload-subtitle">
+                        Teile einen besonderen Moment mit
+                        deinen Liebsten.
+                    </p>
+
+                    <div class="alert alert-success" th:if="${success}" th:text="${success}" role="status" />
+                    <div class="alert alert-error" th:if="${error}" th:text="${error}" role="alert" />
+
+                    <form class="upload-form" th:action="@{/images/upload}" method="post" enctype="multipart/form-data">
+                        <div class="form-section">
+                            <h3>01 — Bild auswählen</h3>
+                            <div class="file-upload">
+                                <div class="file-upload-icon" aria-hidden="true">
+                                    🖼️
+                                </div>
+
+                                <label class="file-upload-text" for="imageFile">
+                                    Wähle dein Lieblingsfoto
+                                </label>
+
+                                <span class="file-upload-hint">
+                                    Unterstützt JPG und PNG
+                                </span>
+
+                                <input type="file" id="imageFile" name="file" accept="image/jpeg,image/png" required>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>02 — Bilderrahmen auswählen</h3>
+                            <div class="device-list">
+                                <label class="device-option" th:each="device : ${devices}">
+                                    <input type="checkbox" name="deviceIds" th:value="${device.id}">
+
+                                    <span th:text="${device.name}">
+                                        Bilderrahmen
+                                    </span>
+                                </label>
+                            </div>
+
+                            <p class="empty-devices" th:if="${#lists.isEmpty(devices)}">
+                                Noch keine Bilderrahmen vorhanden.
+                            </p>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>03 — Push-Einstellungen</h3>
+                            <div class="push-settings">
+                                <label class="push-option">
+                                    <input type="checkbox" name="pushEnabled">
+
+                                    <span>
+                                        Bild automatisch anzeigen
+                                    </span>
+                                </label>
+
+                                <div class="duration-group">
+                                    <label for="pushDuration">
+                                        Anzeigedauer
+                                    </label>
+                                    <select id="pushDuration" name="pushDurationSeconds">
+                                        <option value="30">
+                                            30 Sekunden
+                                        </option>
+                                        <option value="60">
+                                            1 Minute
+                                        </option>
+                                        <option value="120" selected>
+                                            2 Minuten
+                                        </option>
+                                        <option value="300">
+                                            5 Minuten
+                                        </option>
+                                        <option value="600">
+                                            10 Minuten
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="upload-button" type="submit" th:disabled="${#lists.isEmpty(devices)}">
+                            Bild hochladen
+                            <span aria-hidden="true">→</span>
+                        </button>
+                    </form>
+
+                    <a class="back-link" th:href="@{/}">
+                        ← Zurück zur Startseite
+                    </a>
+                </div>
+            </section>
+
+            <p class="upload-footer">
+                Erinnerungen, die bleiben.
+            </p>
+        </main>
+    </body>
+</html>

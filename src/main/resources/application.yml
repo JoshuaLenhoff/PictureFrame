@@ -15,6 +15,11 @@ spring:
   flyway:
     enabled: true
 
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 20MB
+
 server:
   port: 8080
 
@@ -23,3 +28,5 @@ app:
     username: ${INITIAL_ADMIN_USERNAME:}
     password: ${INITIAL_ADMIN_PASSWORD:}
 
+  storage:
+    location: ${IMAGE_STORAGE_PATH:./storage/images}

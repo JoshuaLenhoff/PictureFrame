@@ -1,0 +1,594 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --bordeaux: #752b46;
+    --bordeaux-dark: #501a30;
+    --bordeaux-light: #a65b76;
+    --cream: #faf6f3;
+    --text: #382a30;
+    --muted: #81747a;
+    --border: #e7d8dd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+
+    background:
+            radial-gradient(
+                    circle at 15% 15%,
+                    #f0dce3 0%,
+                    transparent 45%
+            ),
+            radial-gradient(
+                    circle at 90% 90%,
+                    #e7cbd5 0%,
+                    transparent 40%
+            ),
+            var(--cream);
+}
+
+/* Gesamtes Layout */
+
+.upload-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 32px;
+    padding: 40px 20px;
+}
+
+/* Seitenüberschrift */
+
+.page-header {
+    text-align: center;
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--bordeaux-dark);
+
+    margin: 0 0 12px;
+    letter-spacing: -1px;
+}
+
+.page-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* Upload-Kachel */
+
+.upload-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 520px;
+
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    background: #fffaf8;
+
+    box-shadow:
+            0 20px 60px rgba(80, 26, 48, 0.12),
+            0 4px 15px rgba(80, 26, 48, 0.05);
+
+    transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+}
+
+.upload-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+            0 25px 70px rgba(80, 26, 48, 0.17);
+}
+
+/* Kamera als Hintergrund */
+
+.upload-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background-image: url('/images/camera-background.jpg');
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0.13;
+}
+
+.upload-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+            145deg,
+            rgba(255, 250, 248, 0.88),
+            rgba(255, 247, 249, 0.96)
+    );
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 42px 38px 34px;
+    text-align: center;
+}
+
+/* Kamera-Icon */
+
+.camera-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 66px;
+    height: 66px;
+
+    border-radius: 50%;
+    background: #f3e3e9;
+
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Überschrift innerhalb der Kachel */
+
+.upload-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--bordeaux-dark);
+
+    margin: 0 0 10px;
+}
+
+.upload-subtitle {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0 0 30px;
+}
+
+/* Formular */
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    width: 100%;
+    text-align: left;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-section h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--bordeaux-dark);
+
+    margin: 0;
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+/* Datei auswählen */
+
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+    padding: 28px 20px;
+
+    border: 2px dashed #d7b5c2;
+    border-radius: 16px;
+
+    background: rgba(253, 245, 248, 0.8);
+    cursor: pointer;
+
+    transition:
+            border-color 0.25s ease,
+            background 0.25s ease,
+            transform 0.25s ease;
+}
+
+.file-upload:hover {
+    border-color: var(--bordeaux);
+    background: #f8eaf0;
+    transform: translateY(-2px);
+}
+
+.file-upload:focus-within {
+    border-color: var(--bordeaux);
+    outline: 3px solid rgba(117, 43, 70, 0.2);
+    outline-offset: 3px;
+}
+
+.file-upload-icon {
+    font-size: 2rem;
+}
+
+.file-upload-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--bordeaux-dark);
+    text-align: center;
+}
+
+.file-upload-hint {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+}
+
+.file-upload input[type="file"] {
+    width: 100%;
+    max-width: 100%;
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.file-upload input[type="file"]::file-selector-button {
+    padding: 10px 14px;
+    margin-right: 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: white;
+    color: var(--bordeaux-dark);
+
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Bilderrahmen-Auswahl */
+
+.device-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.device-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px 16px;
+
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+
+    transition:
+            border-color 0.25s ease,
+            background 0.25s ease,
+            box-shadow 0.25s ease;
+}
+
+.device-option:hover {
+    border-color: var(--bordeaux-light);
+    background: #fff;
+}
+
+.device-option:has(input:checked) {
+    border-color: var(--bordeaux);
+    background: #f8edf1;
+    box-shadow: 0 0 0 2px rgba(117, 43, 70, 0.06);
+}
+
+.device-option:focus-within {
+    outline: 3px solid rgba(117, 43, 70, 0.18);
+    outline-offset: 2px;
+}
+
+.device-option input[type="checkbox"],
+.push-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+
+    margin: 0;
+    accent-color: var(--bordeaux);
+    cursor: pointer;
+}
+
+.device-option span {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.empty-devices {
+    padding: 16px;
+
+    border-radius: 12px;
+    background: #fbe8e9;
+
+    color: #922c43;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+/* Push-Einstellungen */
+
+.push-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    padding: 20px;
+
+    border-radius: 14px;
+    background: rgba(253, 245, 248, 0.85);
+    border: 1px solid var(--border);
+}
+
+.push-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--bordeaux-dark);
+
+    cursor: pointer;
+}
+
+.duration-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.duration-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--bordeaux-dark);
+}
+
+.duration-group select {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+
+    background: white;
+    color: var(--text);
+
+    font: inherit;
+    font-size: 0.92rem;
+
+    cursor: pointer;
+    outline: none;
+
+    transition:
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
+}
+
+.duration-group select:hover {
+    border-color: var(--bordeaux-light);
+}
+
+.duration-group select:focus {
+    border-color: var(--bordeaux);
+    box-shadow: 0 0 0 4px rgba(117, 43, 70, 0.12);
+}
+
+/* Upload-Button */
+
+.upload-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    min-height: 52px;
+
+    margin-top: 8px;
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+            135deg,
+            var(--bordeaux),
+            var(--bordeaux-dark)
+    );
+
+    color: white;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 16px rgba(117, 43, 70, 0.22);
+
+    transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            filter 0.25s ease;
+}
+
+.upload-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    filter: brightness(1.12);
+    box-shadow: 0 10px 24px rgba(117, 43, 70, 0.35);
+}
+
+.upload-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.upload-button:focus-visible {
+    outline: 3px solid var(--bordeaux-light);
+    outline-offset: 4px;
+}
+
+.upload-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Erfolg und Fehler */
+
+.alert {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+
+    border-radius: 12px;
+
+    font-size: 0.88rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.alert-error {
+    background: #fbe8e9;
+    border: 1px solid #e9b4bc;
+    color: #922c43;
+}
+
+.alert-success {
+    background: #e9f5ee;
+    border: 1px solid #b8dcc7;
+    color: #246846;
+}
+
+/* Zurück-Link */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 28px;
+
+    color: var(--bordeaux);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--bordeaux-dark);
+    text-decoration: underline;
+}
+
+.back-link:focus-visible {
+    outline: 2px solid var(--bordeaux);
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+/* Footer */
+
+.upload-footer {
+    margin: 0;
+
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--muted);
+
+    text-align: center;
+}
+
+/* Smartphone */
+
+@media (max-width: 480px) {
+    .upload-page {
+        padding: 24px 16px;
+        gap: 25px;
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .upload-card {
+        border-radius: 20px;
+    }
+
+    .upload-content {
+        padding: 32px 22px 26px;
+    }
+
+    .upload-content h2 {
+        font-size: 1.55rem;
+    }
+
+    .file-upload {
+        padding: 22px 14px;
+    }
+
+    .push-settings {
+        padding: 16px;
+    }
+
+    .duration-group select {
+        font-size: 16px;
+    }
+}
+
+/* Reduzierte Animationen */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
