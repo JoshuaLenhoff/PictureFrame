@@ -30,19 +30,22 @@ public class ImageUploadService
     private final UserRepository userRepository;
     private final Path storagePath;
 
+    private final ImageProcessingService imageProcessingService;
+
     public ImageUploadService(
             DeviceRepository deviceRepository,
             ImageRepository imageRepository,
             DeviceImageRepository deviceImageRepository,
             UserRepository userRepository,
+            ImageProcessingService imageProcessingService,
             @Value("${app.storage.location}") String storageLocation)
     {
         this.deviceRepository = deviceRepository;
         this.imageRepository = imageRepository;
         this.deviceImageRepository = deviceImageRepository;
         this.userRepository = userRepository;
-        this.storagePath = Path.of(storageLocation)
-                .toAbsolutePath().normalize();
+        this.imageProcessingService = imageProcessingService;
+        this.storagePath = Path.of(storageLocation).toAbsolutePath().normalize();
     }
 
     @Transactional
@@ -109,19 +112,23 @@ public class ImageUploadService
 
         UUID imageId = UUID.randomUUID();
         Files.createDirectories(storagePath);
-        Path target = storagePath.resolve(imageId + extension);
+        Path tempFile = Files.createTempFile(storagePath, "upload-", ".tmp");
+        Path target = storagePath.resolve(imageId + ".jpg");
+        boolean saved = false;
 
         try {
             try (InputStream input = file.getInputStream()) {
-                Files.copy(input, target);
+                Files.copy(input, tempFile, StandardCopyOption.REPLACE_EXISTING);
             }
+
+            this.imageProcessingService.process(tempFile, target);
 
             Image image = new Image(
                     user,
                     imageId,
                     file.getOriginalFilename(),
                     target.toString(),
-                    contentType,
+                    "image/jpeg",
                     Files.size(target)
             );
 
@@ -131,10 +138,14 @@ public class ImageUploadService
                 this.deviceImageRepository.save(deviceImage);
             }
 
+            saved = true;
             return imageId;
-        } catch (Exception exception) {
-            Files.deleteIfExists(target);
-            throw exception;
+        } finally {
+            Files.deleteIfExists(tempFile);
+
+            if (!saved) {
+                Files.deleteIfExists(target);
+            }
         }
     }
 
