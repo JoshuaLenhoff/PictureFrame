@@ -34,9 +34,9 @@ public class Image
 
     protected Image() {}
 
-    public Image(User userId, String fileName, String filePath, String contentType, long fileSize) {
-        this.id = UUID.randomUUID();
-        this.userId = userId;
+    public Image(User user, UUID id, String fileName, String filePath, String contentType, long fileSize) {
+        this.id = id;
+        this.userId = user;
         this.fileName = fileName;
         this.filePath = filePath;
         this.contentType = contentType;
